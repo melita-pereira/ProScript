@@ -1,0 +1,16 @@
+I’ve been spending the last few days just trying to get the introduction to the game running. I’m new to Ren'Py, so most of this is just searching for why things aren't working and trying to figure out the flow. I’ve got the player moving from the store entrance to the pharmacy, and finally into the back, but it's been a process.
+
+The Struggles:
+Audio Is Winning: Trying to manage the sound is way harder than I thought. I have this 1:21 loop of store ambiance; families, kids, checkout beeps, and getting it to stop when the player hits the break room was a total nightmare. I thought .wav files would be easy, but they just kept glitching out with the fade-outs. I finally figured out that just using a clean stop command worked better and reducing the fadeout time. I also figured that there were two types of audio files used in Renpy - sound and music.
+
+The "Awkward" Factor: I added this custom cough sound effect for when the customer glares at you for "cutting the line." I really want the player to feel that awkwardness of being a new hire who doesn't know their place yet.
+
+Still Figuring Out Assets: I’m still digging through sites for the right sounds, but honestly? I’m starting to think I’ll just have to record them myself. Nothing I’m finding quite hits the mark for the "login accepted" chime I have in my head.
+
+The "Maybe" Features:
+The "Among Us" Swipe: I really want to make clocking in like a mini-game where you actually swipe the card to clock in. I don’t know if it’s viable yet, but the idea of dragging the card across the screen for "Login Accepted" would be so satisfying.
+
+The Pharmacy Software: I plan on making custom Pharmacy Software (for copyright and patient privacy reasons), which would be a mini-game in itself type of thing where the user can navigate to different aspects of the software, which is accessible to them as a Pharmacy Assistant. I believe there might be a lot of work that would go behind it, if it will be at a scale I'm envisioning it to be right now.
+
+Next Steps:
+The characters and sprites can wait. Right now, I just want the skeleton of the job to feel solid. It’s all about the player getting acquainted with the store and the pharmacy as a whole. I’m just trying to get the hang of how the script flows and keep pushing forward.
