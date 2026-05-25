@@ -1,5 +1,6 @@
 ﻿define m = Character("Esther")
 define u = Character("[player_name]")
+define c = Character("Customer")
 
 init python:
     inventory = []
@@ -52,24 +53,25 @@ label manager_appears:
 
     stop music fadeout 0.5
 
-    scene bg_break_room with fade:
-        size (1920, 1080)
-    m "This is the break room. You can relax here during your breaks and have your meals."
-    m "This is also where you would come in first to clock in, leave your jackets and bags, if any."
-    m "Here's a neat little locker for you to use. Just put your stuff in there and lock it up."
+scene bg_break_room with fade:
+    size (1920, 1080)
+m "This is the break room. You can relax here during your breaks and have your meals."
+m "This is also where you would come in first to clock in, leave your jackets and bags, if any."
+m "Here's a neat little locker for you to use. Just put your stuff in there and lock it up."
 
-    call screen personalized_locker
-    u "Thanks, Esther! This locker is really nice."
-    m "No problem! Now, let's get you clocked in so you can start working."
-    m "To do that, you're going to need this. It's your employee swipe card. Just swipe it here at the clock-in station, and you'll be good to go."
+call screen personalized_locker
+u "Thanks, Esther! This locker is really nice."
+m "No problem! Now, let's get you clocked in so you can start working."
+m "To do that, you're going to need this. It's your employee swipe card. Just swipe it here at the clock-in station, and you'll be good to go."
 
-    "Esther hands you the swipe card, and you take it, feeling a bit more official now that you have it in your hand."
-    $ inventory.append("Employee Swipe Card")
+"Esther hands you the swipe card, and you take it, feeling a bit more official now that you have it in your hand."
+$ inventory.append("Employee Swipe Card")
+#maybe show the swipe card with the system message and then have user tap or press enter to advance
 
-    "{b}System:{/b} You have received an Employee Swipe Card! It has been added to your inventory."
+"{b}System:{/b} You have received an Employee Swipe Card! It has been added to your inventory."
 
-    u "Got it! Thanks, Esther. I'll make sure to keep it safe."
-    m "Go ahead and swipe it at the clock-in station to get started. I'll be around if you have any questions or need help with anything."
+u "Got it! Thanks, Esther. I'll make sure to keep it safe."
+m "Go ahead and swipe it at the clock-in station to get started. I'll be around if you have any questions or need help with anything."
 
 scene bg_clock_in_station with fade
 play sound "clock_in.wav"
@@ -80,5 +82,21 @@ $ has_clocked_in = True
 
 u "Alright, I'm clocked in! Time to get to work!"
 m "Great! Follow me to the pharmacy counter, and I'll show you how everything works."
+
+scene bg_pharmacy_drop_off_counter with fade
+m "This is our prescription drop off counter. You would direct patients here if they want to drop off their physical prescriptions since we have a scanner attached to the computer."
+m "Did you want to have a go at it?"
+
+menu use_dropoff:
+    "Yes.":
+        jump drop_off_scene
+    "No, maybe later.":
+        jump filling_scene
+
+label drop_off_scene
+show customer at center with dissolve
+c "Hello, I'm just dropping off a prescription."
+#show the prescription on screen, preferably handwritten but depends on what we get
+menu
 
 return
